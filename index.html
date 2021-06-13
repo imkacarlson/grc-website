@@ -1,519 +1,194 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  html,
-  body,
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Lato", sans-serif
-  }
+<!doctype html>
+<html lang="en">
 
-  .mySlides {
-    display: none
-  }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.83.1">
+  <title>Navbar Template · Bootstrap v5.0</title>
 
-  .w3-tag,
-  .fa {
-    cursor: pointer
-  }
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/">
 
-  .w3-tag {
-    height: 15px;
-    width: 15px;
-    padding: 0;
-    margin-top: 6px
-  }
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-  .nav-bar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .nav-bar li {
-    float: left;
-  }
-
-  .nav-bar li a,
-  .dropbtn {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
-  .nav-bar li a:hover,
-  .dropdown:hover .dropbtn {
-    background-color: #b9b8b8;
-  }
-
-  .nav-bar li.dropdown {
-    display: inline-block;
-  }
-
-  .nav-bar .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .nav-bar .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-bar .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-
-  .nav-bar .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  /* -------------------- */
-
-  /* Add a black background color to the top navigation */
-  .topnav {
-    background-color: #333;
-
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
-
-  /* Right-aligned section inside the top navigation */
-  .topnav-right {
-    float: right;
-  }
-
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-
-  /* Hide the link that should open and close the topnav on small screens */
-  .topnav .icon {
-    display: none;
-  }
-
-  /* Dropdown container - needed to position the dropdown content */
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
-
-  /* Style the dropdown button to fit inside the topnav */
-  .dropdown .dropbtn {
-    font-size: 17px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-  }
-
-  /* Style the dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  /* Style the links inside the dropdown */
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  /* Add a dark background on topnav links and the dropdown button on hover */
-  .topnav a:hover,
-  .dropdown:hover .dropbtn {
-    background-color: #555;
-    color: white;
-  }
-
-  /* Add a grey background to dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  /* Show the dropdown menu when the user moves the mouse over the dropdown button */
-  @media screen and (min-width: 600px) {
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-  }
-
-  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-  @media screen and (max-width: 600px) {
-
-    .topnav a:not(:first-child),
-    .dropdown .dropbtn {
-      display: none;
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
     }
 
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-  }
-
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-  @media screen and (max-width: 600px) {
-    .topnav.responsive {
-      position: relative;
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
     }
 
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
+    body {
+      padding-bottom: 20px;
     }
 
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
+    .navbar {
+      margin-bottom: 20px;
     }
 
-    .topnav.responsive .dropdown {
-      float: none;
+    .themed-container {
+      padding: .75rem;
+      margin-bottom: 1.5rem;
     }
-
-    .topnav.responsive .dropdown-content {
-      position: relative;
-    }
-
-    .topnav.responsive .dropdown .dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-</style>
+  </style>
+</head>
 
 <body>
 
-  <!-- Nav Bar -->
-  <!-- <ul class="nav-bar">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#news">News</a></li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </li>
-  </ul> -->
+  <main>
+    <div class="container-fluid">
 
-  <!-- Nav Bar -->
+      <script src="navbar.js"></script>
 
-  <div class="topnav" id="myTopnav">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <button class="dropbtn" onclick="mensDropdown()">Men's Team
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content" id="mens-content">
-        <a href="#">Men's Roster</a>
-        <a href="#">Men's Top 5 All-Time</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Womens's Team
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">Women's Roster</a>
-        <a href="#">Women's Top 5 All-Time</a>
-      </div>
-    </div>
-    <a href="jerry.html">Coach Jerry</a>
-    <a target="_blank" href="http://blog.grcrunning.com/">GRC Blog</a>
-    <div class="dropdown">
-      <button class="dropbtn">In Memoriam
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">Nina May Brekelmans</a>
-        <a href="#">Lauren Woodall Roady</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Join the Team
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="#join">Join the Team</a>
-        <a href="#">New Members</a>
-      </div>
-    </div>
-    <a href="#contact">Contact Us</a>
-    <a href="#contact">Club Business</a>
-    <a href="#contact">Club Archives</a>
-    <a href="#contact">Useful Links</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
+      <div class="container themed-container bg-light">
+        <h1>Georgetown Running Club</h1>
+        <p>Elite running and racing team based in Washington, D.C.</p>
 
-  <!-- Content -->
-  <div class="w3-content" style="max-width:1100px;margin-top:60px;margin-bottom:80px">
-
-    <div class="w3-panel">
-      <h1><b>Georgetown Running Club</b></h1>
-      <p>Elite running and racing team based in Washington, D.C.</p>
-    </div>
-
-    <!-- Slideshow -->
-    <div class="w3-container">
-      <div class="w3-display-container mySlides">
-        <img src="2016-team-photo.jpg" style="width:100%;">
-      </div>
-      <div class="w3-display-container mySlides">
-        <img src="clubs_19.jpg" style="width:100%">
-      </div>
-      <div class="w3-display-container mySlides">
-        <img src="clubs_19_women.jpg" style="width:100%">
-      </div>
-
-      <!-- Slideshow next/previous buttons -->
-      <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-        <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
-        <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
-
-        <div class="w3-center">
-          <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-          <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-          <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+        <!-- Slideshow -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/2016-team-photo.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/2019-men-clubs.JPG" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/2019-women-clubs.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-    </div>
 
-
-
-    <!-- Grid -->
-    <div class="w3-row-padding" id="who-we-are">
-      <div class="w3-center w3-padding-64">
-        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="jerry.jpg" alt="John" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="jerry.html">Jerry Alexander</a></h3>
-            <p class="w3-opacity">Head Coach</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <!-- Sponsors -->
+      <div class="container themed-container bg-light">
+        <div class="row align-items-center">
+          <div class="col">
+            <a href="https://www.runpacers.com/"><img src="logos/pac-logo-lockups-square2-500x500.png"
+                class="img-fluid d-block m-auto" alt="..."></a>
+          </div>
+          <div class="col">
+            <a href="https://www.newbalance.com/"><img src="logos/new-balance-logo.jpg" class="img-fluid d-block m-auto"
+                alt="..."></a>
           </div>
         </div>
       </div>
 
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="sean-thumbnail.jpg" alt="John" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="alex-morros-roster-thumbnail.jpg">Sean O'Leary</a></h3>
-            <p class="w3-opacity">President</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <div class="container themed-container bg-light">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/jerry/jerry.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><a href="jerry.html">Jerry Alexander</a></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Head Coach</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/sean-thumbnail.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><a href="roster-pages/sean-o-leary.html">Sean O'Leary</a></h5>
+                <h6 class="card-subtitle mb-2 text-muted">President</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/alex-morros-roster-thumbnail.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Alex Morris</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Women's Team Director</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="alex-morros-roster-thumbnail.jpg" alt="Mike" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="alex_morris.html">Alex Morris</a></h3>
-            <p class="w3-opacity">Women's Team Director</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <div class="row">
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/kyle-wagener-thumbnail.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Kyle Wagener</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Men's Team Director</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/tom-thumbnial.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Tom Kelly</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Vice President/Treasurer</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <img src="img/maura-thumbnail.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Maura Linde</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Secretary</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Grid -->
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="kyle-wagener-thumbnail.jpg" alt="Mike" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="alex_morris.html">Kyle Wagener</a></h3>
-            <p class="w3-opacity">Men's Team Director</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="tom-thumbnial.jpg" alt="Mike" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="alex_morris.html">Tom Kelly</a></h3>
-            <p class="w3-opacity">Vice President/Treasurer</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-third w3-margin-bottom">
-        <div class="w3-card-4">
-          <img src="maura-thumbnail.jpg" alt="Mike" style="width:100%">
-          <div class="w3-container">
-            <h3><a href="alex_morris.html">Maura Linde</a></h3>
-            <p class="w3-opacity">Secretary</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div class="w3-padding-64">
-        <div class="w3-center">
-          <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Join the Team</span><br><br><br>
-        </div>
-
-        <div class="w3-padding-16 w3-light-grey w3-container" id="join">
-          ​If you are a top notch athlete looking for a highly competitive team in the DC area, we hope you will contact
-          GRC. Though our standards for new members are high, we are always looking for promising new talent.<br><br>
-
-          To indicate your interest in GRC, send us an email at <a
-            href="mailto:info@grcrunning.com">info@grcrunning.com</a>. Please be sure to include the following in your
-          initial email: <br>
-
-          <ul>
-            <li><span>Your recent personal best times</span></li>
-            <li><span>Your running history (describe your progression as a runner including&nbsp;personal best times
-                each year starting in high school, if applicable)</span></li>
-            <li><span>Injury history</span></li>
-            <li><span>Your current level of fitness</span></li>
-            <li><span>Racing goals for the coming months.&nbsp;</span></li>
-          </ul>
-        </div>
-
       </div>
     </div>
-  </div>
 
 
-  <!-- Footer -->
-
-  <footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-    <h4>Footer</h4>
-    <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-        class="w3-hover-text-green">w3.css</a></p>
-  </footer>
+    <script src="footer.js"></script>
 
 
-  <script>
-    // Slideshow
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-      showDivs(slideIndex += n);
-    }
-
-    function currentDiv(n) {
-      showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-      var i;
-      var x = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("demodots");
-      if (n > x.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = x.length };
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-white", "");
-      }
-      x[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " w3-white";
-    }
+  </main>
 
 
-    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
 
-    /* Mens dropdown */
-    function mensDropdown() {
-      var x = document.getElementById("mens-content");
-
-      // var y = document.getElementById("myTopnav");
-      // if(y.className.includes("responsive")){
-      //   console.log("mobile!!")
-      // }else{
-      //   console.log("not mobile!!")
-      // }
-
-      if (x.style.display == "") {
-        x.style.display = "block"
-        console.log(x.style.display)
-      } else {
-        x.style.display = ""
-      }
-    }
-  </script>
 
 </body>
 

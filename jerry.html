@@ -1,411 +1,254 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4 {
-        font-family: "Lato", sans-serif
-    }
+<!doctype html>
+<html lang="en">
 
-    .mySlides {
-        display: none
-    }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>Navbar Template · Bootstrap v5.0</title>
 
-    .w3-tag,
-    .fa {
-        cursor: pointer
-    }
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbars/">
 
-    .w3-tag {
-        height: 15px;
-        width: 15px;
-        padding: 0;
-        margin-top: 6px
-    }
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    @media (min-width: 769px) {
-        .float-right-lg {
-            float: right;
-            margin-left: 5px;
-        }
-    }
-
-    @media (max-width: 770px) {
-        .float-right-lg {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-    }
-
-    @media (min-width: 769px) {
-        .float-left-lg {
-            float: left;
-            margin-right: 5px;
-        }
-    }
-
-    @media (max-width: 770px) {
-        .float-left-lg {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-    }
-
-    /* -------------------- */
-
-    /* Add a black background color to the top navigation */
-    .topnav {
-        background-color: #333;
-
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-    }
-
-    /* Right-aligned section inside the top navigation */
-    .topnav-right {
-        float: right;
-    }
-
-    /* Style the links inside the navigation bar */
-    .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-
-    /* Hide the link that should open and close the topnav on small screens */
-    .topnav .icon {
-        display: none;
-    }
-
-    /* Dropdown container - needed to position the dropdown content */
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-
-    /* Style the dropdown button to fit inside the topnav */
-    .dropdown .dropbtn {
-        font-size: 17px;
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-
-    /* Style the dropdown content (hidden by default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    /* Style the links inside the dropdown */
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-
-    /* Add a dark background on topnav links and the dropdown button on hover */
-    .topnav a:hover,
-    .dropdown:hover .dropbtn {
-        background-color: #555;
-        color: white;
-    }
-
-    /* Add a grey background to dropdown links on hover */
-    .dropdown-content a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-
-    /* Show the dropdown menu when the user moves the mouse over the dropdown button */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-    @media screen and (max-width: 600px) {
-
-        .topnav a:not(:first-child),
-        .dropdown .dropbtn {
-            display: none;
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
 
-        .topnav a.icon {
-            float: right;
-            display: block;
-        }
-    }
-
-    /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-    @media screen and (max-width: 600px) {
-        .topnav.responsive {
-            position: relative;
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
         }
 
-        .topnav.responsive a.icon {
-            position: absolute;
-            right: 0;
-            top: 0;
+        body {
+            padding-bottom: 20px;
         }
 
-        .topnav.responsive a {
-            float: none;
-            display: block;
-            text-align: left;
+        .navbar {
+            margin-bottom: 20px;
         }
 
-        .topnav.responsive .dropdown {
-            float: none;
+        .themed-container {
+            padding: .75rem;
+            margin-bottom: 1.5rem;
         }
 
-        .topnav.responsive .dropdown-content {
-            position: relative;
+        @media (min-width: 769px) {
+            .float-right-lg {
+                float: right;
+                margin-left: 5px;
+            }
         }
 
-        .topnav.responsive .dropdown .dropbtn {
-            display: block;
-            width: 100%;
-            text-align: left;
+        @media (max-width: 770px) {
+            .float-right-lg {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
         }
-    }
-</style>
+
+        @media (min-width: 769px) {
+            .float-left-lg {
+                float: left;
+                margin-right: 5px;
+            }
+        }
+
+        @media (max-width: 770px) {
+            .float-left-lg {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
-    <!-- Nav Bar -->
+    <main>
+        <div class="container-fluid">
 
-    <div class="topnav" id="myTopnav">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn">Men's Team
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Men's Roster</a>
-                <a href="#">Men's Top 5 All-Time</a>
+            <script src="navbar.js"></script>
+
+            <div class="container themed-container bg-light">
+                <h1>Georgetown Running Club</h1>
+                <h3>Coach Jerry Alexander</h3>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Womens's Team
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Women's Roster</a>
-                <a href="#">Women's Top 5 All-Time</a>
+
+            <div class="container themed-container bg-light">
+                <p class="fst-normal">Jerry Alexander was a walk-on at Columbia who at least partially made up for his
+                    complete lack of talent
+                    with his dogged refusal to accept the reality that he had no business running in Division I. As a
+                    senior, Jerry was captain of the Lions Cross Country and Track squads. Jerry used his final year of
+                    track eligibility as a first year law student at Vanderbilt, where he broke the school record in the
+                    steeplechase. Jerry’s running “career” was cut short by injury, which prompted him to take up the
+                    noble
+                    art of coaching.</p>
+
+                <p class="fst-normal">Because Jerry subscribes to the proposition that the coach gets full credit for
+                    all successes (and its
+                    corollary that the coach takes no blame for any failures), he is quick to take credit for the
+                    excellent
+                    results achieved by GRC men on his watch including the men's 8th place finish at the 2017 USATF Club
+                    Cross Country Championship and the 1st place in the 2018 Millrose Games Distance Medley Relay.</p>
+
+                <img src="img/jerry_wertz_potrait-resized.jpg" class="float-right-lg shadow-sm p-3 mb-5 bg-body rounded">
+
+                <p class="fst-normal">Outstanding individual achievements include (but are not limited to):
+                <ul>
+                    <li><a href="/kieran-oconnor.html">Kieran O' Connor</a> - 24th at the 2016 Olympic Trials and 2020
+                        Trials Qualifier, Half Marathon Club Record (64:38)</li>
+                    <li><a href="/dan-meeter.html">Dan Meeter</a> - 2020 Trials Qualifier in Marathon Debut</li>
+                    <li><a href="/lucas-stalnaker.html">Lucas Stalnaker</a> - 20th Place Finish in the 2019 USATF
+                        Outdoor
+                        Championship in the 10,000 Meters and Club Records at 3k (8:11), 8k (23:46), and 10k (28:57)
+                    </li>
+                    <li><a href="/michael-franklin.html">Mike Franklin</a> - 1st Place in the 2014 Penn Relays 10k</li>
+                    <li><a href="/lucas-meyer.html">Luke Meyer</a> - 10 Mile Club Record (48:46)</li>
+                    <li><a href="/daniel-trettel.html">Daniel Trettel</a> - 800m and 1500 Club Records (1:53.21 and
+                        3:50.67)
+                    </li>
+                    <li><a href="/paul-thistle.html">Paul Thistle</a> - 3k Steeplechase Club Record (9:00.5)</li>
+                    <li><a href="/carlos-jameison.html">Carlos Jamieson</a> - Road 5k Club Record (14:27)</li>
+                    <li><a href="/ryan-witters.html">Ryan Witters</a> - Mile Club Record (4:12.40)</li>
+                    <li><a href="/jerry-greenlaw.html">Jerry Greenlaw </a>- 15k Club Record (47:57)</li>
+                </ul>
+                </p>
+
+                <p class="fst-normal">Jerry also takes credit for huge PRs run by, among others, Cecilia Barowski
+                    (2:02.14 800), Stephanie
+                    Reich (16:25 5000, 34:12 10,000, 1:15:45 half marathon), Teal Burrell (1:18:53 half marathon,
+                    2:42:13
+                    marathon), Lindsay O Brien (34:38 10k, 57:47 10 mile), Maura Linde (4:32 1500, 16:27 5000, 57:00 10
+                    mile), Kerry Allen (28:46 8k, 58:57 10 mile, 1:17:45 half marathon), Hilary May (4:32 1500, 9:52
+                    3000,
+                    16:56 5000), Maura Carroll (17:27 5000, 35:45 10k, 59:56 10 mile, 1:19:46 half marathon, 2:49:54
+                    marathon), Alex Morris (4:34.8 1500), Beth Young (1:17:18 half marathon, 2:49:30 marathon), Kristin
+                    Johnson (59:40 10 mile, 1:19:21 half marathon, 2:48:06 marathon), Taylor Tubbs (59:20 10 mile),
+                    Michelle
+                    Miller (35:36 10k, 59:20 10 mile, 1:19:41 half marathon), Frances Loeb (59:59 10 mile, 2:49:40
+                    marathon), Elena Barham (9:45 3000, 16:51 5000, 1:21:14 half marathon), Catherine Campbell (4:49
+                    1500,
+                    10:07 3k, 17:08 5k), Kate Dart (1:20:19 half marathon, 2:53:18 marathon), Julie Tarallo (1:20:40
+                    half
+                    marathon, 2:51:55 marathon), Natalie Patterson (2:55:17 marathon), Keely Eckberg (2:56:18 marathon),
+                    Margaret Johnston (1:20:01 half marathon, 2:58:42 marathon), Hallie Fox (2:56:44 marathon), Liz
+                    Reynolds
+                    (2:57:47 marathon), and Greta Stults (2:59:58 marathon).</p>
+
+                <p class="fst-normal">Jerry also claims full credit for the transformation of the GRC’s women’s team
+                    into a burgeoning national
+                    power, which was amply demonstrated by the team’s outstanding 6th place finish in the 2016 USATF
+                    Club
+                    Cross Country Championships, and victory in the Distance Medley Relay at the 2017 Millrose Games.
+                </p>
+
+                <img src="img/clubs-2019-women-after-race.jpg" class="float-right-lg shadow-sm p-3 mb-5 bg-body rounded">
+
+                <p class="fst-normal">
+                <ul>
+                    <li><a href="/frances-koons.html">Frances Koons</a> - 8th at the 2014 USATF Club Cross Country
+                        Championship, 8th place and 3rd American at the BUPA Great Edinburgh International Cross Country
+                        race in Scotland, 2015 Penn Relays 5k Champion, Club Records in track 10k (33:17) and road 8k
+                        (26:27) and 10k (34:14)</li>
+                    <li><a href="/emily-de-la-bruyere.html">Emily de La Bruyere</a> - USATF Outdoor Championships
+                        Qualifier
+                        in the 3k Steeple chase (2017 and 2018), Club Records in 3k (9:28), 5k (16:15), and Steeplechase
+                        (9:59)</li>
+                    <li><a href="/maura-linde.html">Maura Linde</a> - 20th at the 2017 USATF Clubs XC Championship and
+                        2020
+                        Olympic Trials Qualifier (2:44:26)</li>
+                    <li><a href="/kerry-allen.html">Kerry Allen</a> - 2020 Olympic Trials Qualifier (2:41:33)</li>
+                    <li><a href="/teal-burrell.html">Teal Burrell</a> - 72nd at the 2016 Olympic Trials Marathon</li>
+                    <li><a href="/emily-potter.html">Emily Potter</a> - 102nd at the 2016 Olympic Trials Marathon</li>
+                    <li><a href="/stephanie-reich.html">Stephanie Reich</a> - 2016 and 2017 Pen Relays 10k Champion,
+                        Clubs
+                        Records in 1500m (4:27.9), Road 5k (16:42), and 10 Mile (56:29)</li>
+                    <li><a href="/frances-loeb.html">Frances Loeb</a> - 2016 Penn Relays 5k Champion</li>
+                    <li><a href="/alex-morris.html">Alex Morris</a> - Club Record in 800m (2:08.87)</li>
+                    <li><a href="/susan-hendrick.html">Susan Hendrick</a> - Club Record in Road Mile (4:49)</li>
+                    <li><a href="/drea-garvue.html">Drea Garvue</a> - Club Record in the 15k (56:51)<br /></li>
+                </ul>
+                </p>
+
+                <p class="fst-normal">Jerry also takes credit for huge PRs run by, among others, Cecilia Barowski
+                    (2:02.14 800), Stephanie
+                    Reich (16:25 5000, 34:12 10,000, 1:15:45 half marathon), Teal Burrell (1:18:53 half marathon,
+                    2:42:13
+                    marathon), Lindsay O’Brien (34:38 10k, 57:47 10 mile), Maura Linde (4:32 1500, 16:27 5000, 57:00 10
+                    mile), Kerry Allen (28:46 8k, 58:57 10 mile, 1:17:45 half marathon), Hilary May (4:32 1500, 9:52
+                    3000,
+                    16:56 5000), Maura Carroll (17:27 5000, 35:45 10k, 59:56 10 mile, 1:19:46 half marathon, 2:49:54
+                    marathon), Alex Morris (4:34.8 1500), Beth Young (1:17:18 half marathon, 2:49:30 marathon), Kristin
+                    Johnson (59:40 10 mile, 1:19:21 half marathon, 2:48:06 marathon), Taylor Tubbs (59:20 10 mile),
+                    Michelle
+                    Miller (35:36 10k, 59:20 10 mile, 1:19:41 half marathon), Frances Loeb (59:59 10 mile, 2:49:40
+                    marathon), Elena Barham (9:45 3000, 16:51 5000, 1:21:14 half marathon), Catherine Campbell (4:49
+                    1500,
+                    10:07 3k, 17:08 5k), Kate Dart (1:20:19 half marathon, 2:53:18 marathon), Julie Tarallo (1:20:40
+                    half
+                    marathon, 2:51:55 marathon), Natalie Patterson (2:55:17 marathon), Keely Eckberg (2:56:18 marathon),
+                    Margaret Johnston (1:20:01 half marathon, 2:58:42 marathon), Hallie Fox (2:56:44 marathon), Liz
+                    Reynolds
+                    (2:57:47 marathon), and Greta Stults (2:59:58 marathon).</p>
+
+                <img src="img/penn-2016.jpg" class="float-left-lg shadow-sm p-3 mb-5 bg-body rounded">
+
+                <p class="fst-normal">Before he started working with post-graduate athletes, Jerry was a college coach
+                    in the DC area. When
+                    Jerry became Head Coach at the University of the District of Columbia in 1995, he inherited a
+                    program
+                    that was in complete disarray. In his two years at UDC, Jerry recruited and coached an athlete who
+                    qualified for Division II nationals in the 800 and 1500 in indoor and outdoor track, but his
+                    rebuilding
+                    project was cut short when budget problems led to the suspension of the athletic department. Jerry
+                    moved
+                    to American University where he was Assistant Coach for seven years, during which time he recruited
+                    and
+                    coached All-Americans Sean O’Brien, Sean Duffy, and Samia Akbar.</p>
+
+                <p class="fst-normal">Jerry also coaches the Northern Virginia Running Club, a community-based team
+                    where he has worked with
+                    numerous standout women distance runners, including Jessica McGuire, who qualified for the 2020
+                    Olympic
+                    Trials Marathon with a huge PR of 2:43:55, former LaSalle All-American Kathy Liever, and Martha
+                    Merz,
+                    who broke the 17 year-old American Record for 10,000 meters for runners over 45 years-old at the
+                    2008
+                    Penn Relays.</p>
+
+                <p class="fst-normal">Jerry lives in Bethesda with his wife Michelle, who only runs when she’s chasing
+                    their son Jacob. When
+                    he’s not devising new and unique ways to whip his runners into shape, Jerry is a Trial Attorney with
+                    the
+                    United States Department of Justice.</p>
             </div>
-        </div>
-        <a href="jerry.html">Coach Jerry</a>
-        <a target="_blank" href="http://blog.grcrunning.com/">GRC Blog</a>
-        <div class="dropdown">
-            <button class="dropbtn">In Memoriam
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Nina May Brekelmans</a>
-                <a href="#">Lauren Woodall Roady</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Join the Team
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#join">Join the Team</a>
-                <a href="#">New Members</a>
-            </div>
-        </div>
-        <a href="#contact">Contact Us</a>
-        <a href="#contact">Club Business</a>
-        <a href="#contact">Club Archives</a>
-        <a href="#contact">Useful Links</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
 
-    <!-- Content -->
-    <div class="w3-content" style="max-width:1100px;margin-top:60px;margin-bottom:80px">
 
-        <div class="w3-panel">
-            <h1><b>Georgetown Running Club</b></h1>
-            <h2>Coach Jerry Alexander</h2>
-        </div>
+            <script src="footer.js"></script>
 
-        <!-- Grid -->
-        <div class="w3-padding-16 w3-light-grey w3-container">
-            <p>Jerry Alexander was a walk-on at Columbia who at least partially made up for his complete lack of talent
-                with his dogged refusal to accept the reality that he had no business running in Division I. As a
-                senior, Jerry was captain of the Lions Cross Country and Track squads. Jerry used his final year of
-                track eligibility as a first year law student at Vanderbilt, where he broke the school record in the
-                steeplechase. Jerry’s running “career” was cut short by injury, which prompted him to take up the noble
-                art of coaching.</p>
 
-            <p>Because Jerry subscribes to the proposition that the coach gets full credit for all successes (and its
-                corollary that the coach takes no blame for any failures), he is quick to take credit for the excellent
-                results achieved by GRC men on his watch including the men's 8th place finish at the 2017 USATF Club
-                Cross Country Championship and the 1st place in the 2018 Millrose Games Distance Medley Relay.</p>
+    </main>
 
-            <img src="jerry_wertz_potrait-resized.jpg" class="float-right-lg">
 
-            <p>Outstanding individual achievements include (but are not limited to):
-            <ul>
-                <li><a href="/kieran-oconnor.html">Kieran O' Connor</a> - 24th at the 2016 Olympic Trials and 2020
-                    Trials Qualifier, Half Marathon Club Record (64:38)</li>
-                <li><a href="/dan-meeter.html">Dan Meeter</a> - 2020 Trials Qualifier in Marathon Debut</li>
-                <li><a href="/lucas-stalnaker.html">Lucas Stalnaker</a> - 20th Place Finish in the 2019 USATF Outdoor
-                    Championship in the 10,000 Meters and Club Records at 3k (8:11), 8k (23:46), and 10k (28:57)</li>
-                <li><a href="/michael-franklin.html">Mike Franklin</a> - 1st Place in the 2014 Penn Relays 10k</li>
-                <li><a href="/lucas-meyer.html">Luke Meyer</a> - 10 Mile Club Record (48:46)</li>
-                <li><a href="/daniel-trettel.html">Daniel Trettel</a> - 800m and 1500 Club Records (1:53.21 and 3:50.67)
-                </li>
-                <li><a href="/paul-thistle.html">Paul Thistle</a> - 3k Steeplechase Club Record (9:00.5)</li>
-                <li><a href="/carlos-jameison.html">Carlos Jamieson</a> - Road 5k Club Record (14:27)</li>
-                <li><a href="/ryan-witters.html">Ryan Witters</a> - Mile Club Record (4:12.40)</li>
-                <li><a href="/jerry-greenlaw.html">Jerry Greenlaw </a>- 15k Club Record (47:57)</li>
-            </ul>
-            </p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 
-            <p>Jerry also takes credit for huge PRs run by, among others, Cecilia Barowski (2:02.14 800), Stephanie
-                Reich (16:25 5000, 34:12 10,000, 1:15:45 half marathon), Teal Burrell (1:18:53 half marathon, 2:42:13
-                marathon), Lindsay O Brien (34:38 10k, 57:47 10 mile), Maura Linde (4:32 1500, 16:27 5000, 57:00 10
-                mile), Kerry Allen (28:46 8k, 58:57 10 mile, 1:17:45 half marathon), Hilary May (4:32 1500, 9:52 3000,
-                16:56 5000), Maura Carroll (17:27 5000, 35:45 10k, 59:56 10 mile, 1:19:46 half marathon, 2:49:54
-                marathon), Alex Morris (4:34.8 1500), Beth Young (1:17:18 half marathon, 2:49:30 marathon), Kristin
-                Johnson (59:40 10 mile, 1:19:21 half marathon, 2:48:06 marathon), Taylor Tubbs (59:20 10 mile), Michelle
-                Miller (35:36 10k, 59:20 10 mile, 1:19:41 half marathon), Frances Loeb (59:59 10 mile, 2:49:40
-                marathon), Elena Barham (9:45 3000, 16:51 5000, 1:21:14 half marathon), Catherine Campbell (4:49 1500,
-                10:07 3k, 17:08 5k), Kate Dart (1:20:19 half marathon, 2:53:18 marathon), Julie Tarallo (1:20:40 half
-                marathon, 2:51:55 marathon), Natalie Patterson (2:55:17 marathon), Keely Eckberg (2:56:18 marathon),
-                Margaret Johnston (1:20:01 half marathon, 2:58:42 marathon), Hallie Fox (2:56:44 marathon), Liz Reynolds
-                (2:57:47 marathon), and Greta Stults (2:59:58 marathon).</p>
-
-            <p>Jerry also claims full credit for the transformation of the GRC’s women’s team into a burgeoning national
-                power, which was amply demonstrated by the team’s outstanding 6th place finish in the 2016 USATF Club
-                Cross Country Championships, and victory in the Distance Medley Relay at the 2017 Millrose Games. </p>
-
-            <img src="clubs-2019-women-after-race.jpg" class="float-right-lg">
-
-            <p>
-            <ul>
-                <li><a href="/frances-koons.html">Frances Koons</a> - 8th at the 2014 USATF Club Cross Country
-                    Championship, 8th place and 3rd American at the BUPA Great Edinburgh International Cross Country
-                    race in Scotland, 2015 Penn Relays 5k Champion, Club Records in track 10k (33:17) and road 8k
-                    (26:27) and 10k (34:14)</li>
-                <li><a href="/emily-de-la-bruyere.html">Emily de La Bruyere</a> - USATF Outdoor Championships Qualifier
-                    in the 3k Steeple chase (2017 and 2018), Club Records in 3k (9:28), 5k (16:15), and Steeplechase
-                    (9:59)</li>
-                <li><a href="/maura-linde.html">Maura Linde</a> - 20th at the 2017 USATF Clubs XC Championship and 2020
-                    Olympic Trials Qualifier (2:44:26)</li>
-                <li><a href="/kerry-allen.html">Kerry Allen</a> - 2020 Olympic Trials Qualifier (2:41:33)</li>
-                <li><a href="/teal-burrell.html">Teal Burrell</a> - 72nd at the 2016 Olympic Trials Marathon</li>
-                <li><a href="/emily-potter.html">Emily Potter</a> - 102nd at the 2016 Olympic Trials Marathon</li>
-                <li><a href="/stephanie-reich.html">Stephanie Reich</a> - 2016 and 2017 Pen Relays 10k Champion, Clubs
-                    Records in 1500m (4:27.9), Road 5k (16:42), and 10 Mile (56:29)</li>
-                <li><a href="/frances-loeb.html">Frances Loeb</a> - 2016 Penn Relays 5k Champion</li>
-                <li><a href="/alex-morris.html">Alex Morris</a> - Club Record in 800m (2:08.87)</li>
-                <li><a href="/susan-hendrick.html">Susan Hendrick</a> - Club Record in Road Mile (4:49)</li>
-                <li><a href="/drea-garvue.html">Drea Garvue</a> - Club Record in the 15k (56:51)<br /></li>
-            </ul>
-            <hr style="width:100%;clear:both;visibility:hidden;">
-            </hr>
-            </p>
-
-            <p>Jerry also takes credit for huge PRs run by, among others, Cecilia Barowski (2:02.14 800), Stephanie
-                Reich (16:25 5000, 34:12 10,000, 1:15:45 half marathon), Teal Burrell (1:18:53 half marathon, 2:42:13
-                marathon), Lindsay O’Brien (34:38 10k, 57:47 10 mile), Maura Linde (4:32 1500, 16:27 5000, 57:00 10
-                mile), Kerry Allen (28:46 8k, 58:57 10 mile, 1:17:45 half marathon), Hilary May (4:32 1500, 9:52 3000,
-                16:56 5000), Maura Carroll (17:27 5000, 35:45 10k, 59:56 10 mile, 1:19:46 half marathon, 2:49:54
-                marathon), Alex Morris (4:34.8 1500), Beth Young (1:17:18 half marathon, 2:49:30 marathon), Kristin
-                Johnson (59:40 10 mile, 1:19:21 half marathon, 2:48:06 marathon), Taylor Tubbs (59:20 10 mile), Michelle
-                Miller (35:36 10k, 59:20 10 mile, 1:19:41 half marathon), Frances Loeb (59:59 10 mile, 2:49:40
-                marathon), Elena Barham (9:45 3000, 16:51 5000, 1:21:14 half marathon), Catherine Campbell (4:49 1500,
-                10:07 3k, 17:08 5k), Kate Dart (1:20:19 half marathon, 2:53:18 marathon), Julie Tarallo (1:20:40 half
-                marathon, 2:51:55 marathon), Natalie Patterson (2:55:17 marathon), Keely Eckberg (2:56:18 marathon),
-                Margaret Johnston (1:20:01 half marathon, 2:58:42 marathon), Hallie Fox (2:56:44 marathon), Liz Reynolds
-                (2:57:47 marathon), and Greta Stults (2:59:58 marathon).</p>
-
-            <img src="penn-2016.jpg" class="float-left-lg">
-
-            <p>Before he started working with post-graduate athletes, Jerry was a college coach in the DC area. When
-                Jerry became Head Coach at the University of the District of Columbia in 1995, he inherited a program
-                that was in complete disarray. In his two years at UDC, Jerry recruited and coached an athlete who
-                qualified for Division II nationals in the 800 and 1500 in indoor and outdoor track, but his rebuilding
-                project was cut short when budget problems led to the suspension of the athletic department. Jerry moved
-                to American University where he was Assistant Coach for seven years, during which time he recruited and
-                coached All-Americans Sean O’Brien, Sean Duffy, and Samia Akbar.</p>
-
-            <p>Jerry also coaches the Northern Virginia Running Club, a community-based team where he has worked with
-                numerous standout women distance runners, including Jessica McGuire, who qualified for the 2020 Olympic
-                Trials Marathon with a huge PR of 2:43:55, former LaSalle All-American Kathy Liever, and Martha Merz,
-                who broke the 17 year-old American Record for 10,000 meters for runners over 45 years-old at the 2008
-                Penn Relays.</p>
-
-            <p>Jerry lives in Bethesda with his wife Michelle, who only runs when she’s chasing their son Jacob. When
-                he’s not devising new and unique ways to whip his runners into shape, Jerry is a Trial Attorney with the
-                United States Department of Justice.</p>
-        </div>
-
-    </div>
-
-    <!-- Footer -->
-
-    <footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-        <h4>Footer</h4>
-        <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-        <div class="w3-xlarge w3-section">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-        </div>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="w3-hover-text-green">w3.css</a></p>
-    </footer>
-
-    <script>
-   
-    
-        /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-        function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-            x.className += " responsive";
-          } else {
-            x.className = "topnav";
-          }
-        }
-      </script>
 
 </body>
 
