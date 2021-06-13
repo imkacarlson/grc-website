@@ -176,8 +176,10 @@
   }
 
   /* Show the dropdown menu when the user moves the mouse over the dropdown button */
-  .dropdown:hover .dropdown-content {
-    display: block;
+  @media screen and (min-width: 600px) {
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
   }
 
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
@@ -253,10 +255,10 @@
   <div class="topnav" id="myTopnav">
     <a href="index.html">Home</a>
     <div class="dropdown">
-      <button class="dropbtn">Men's Team
+      <button class="dropbtn" onclick="mensDropdown()">Men's Team
         <i class="fa fa-caret-down"></i>
       </button>
-      <div class="dropdown-content">
+      <div class="dropdown-content" id="mens-content">
         <a href="#">Men's Roster</a>
         <a href="#">Men's Top 5 All-Time</a>
       </div>
@@ -409,10 +411,10 @@
       <!-- Contact -->
       <div class="w3-padding-64">
         <div class="w3-center">
-          <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16" >Join the Team</span><br><br><br>
+          <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Join the Team</span><br><br><br>
         </div>
 
-        <div class="w3-padding-16 w3-light-grey w3-container" id = "join">
+        <div class="w3-padding-16 w3-light-grey w3-container" id="join">
           ​If you are a top notch athlete looking for a highly competitive team in the DC area, we hope you will contact
           GRC. Though our standards for new members are high, we are always looking for promising new talent.<br><br>
 
@@ -490,6 +492,25 @@
         x.className += " responsive";
       } else {
         x.className = "topnav";
+      }
+    }
+
+    /* Mens dropdown */
+    function mensDropdown() {
+      var x = document.getElementById("mens-content");
+
+      // var y = document.getElementById("myTopnav");
+      // if(y.className.includes("responsive")){
+      //   console.log("mobile!!")
+      // }else{
+      //   console.log("not mobile!!")
+      // }
+
+      if (x.style.display == "") {
+        x.style.display = "block"
+        console.log(x.style.display)
+      } else {
+        x.style.display = ""
       }
     }
   </script>
