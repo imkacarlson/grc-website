@@ -1,0 +1,12 @@
+body {
+    padding-bottom: 20px;
+  }
+
+  .navbar {
+    margin-bottom: 20px;
+  }
+
+  .themed-container {
+    padding: .75rem;
+    margin-bottom: 1.5rem;
+  }
